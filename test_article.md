@@ -72,9 +72,7 @@ We can simplify the usage of 'this', by the formula:
 </center>
 
 <img 
-    style="display: block; 
-           margin-left: auto;
-           margin-right: auto;
+    style="
            vertical-align: middle;
            text-align: center;
            width: 100%;"
