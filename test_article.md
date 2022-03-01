@@ -65,30 +65,27 @@ In JavaScript, 'this' is used a bit differently, than in other languages like C+
 
 It is entirely determined by **how** a function is called, and not **where** it is defined.
 
-```javascript
-  class NameGenerator {
-    constructor() {
-      const btn = document.querySelector['button'];
-      this.names = ['Max', 'Anna', 'George']; // 'this' will refer to the constructor
-      this.currentName = 0; 
-      btn.addEventListener ('click', this.addName); // but 'this' will refer to the button object
-    }
-```
-
 We can simplify the usage of 'this', by the formula: 
 
+<img 
+    style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 30%;"
+    src="./pictures/this_formula.png" >
+</img>
 ![image info](./pictures/this_formula.png)
 
-
-If called in an object method, 'this' references the object itself.
+If called inside an object method, 'this' references the object itself.
 
 ```javascript
   class NameGenerator {
     constructor() {
       const btn = document.querySelector['button'];
-      this.names = ['Max', 'Anna', 'George']; // 'this' will refer to the constructor
+      this.names = ['Max', 'Anna', 'George'];
       this.currentName = 0; 
-      btn.addEventListener ('click', this.addName); // but 'this' will refer to the button object
+      this.addName();  // 'this' here refers to the constructor
+      btn.addEventListener ('click', this.addName); // but 'this' refers to the button object
     }
 
     addName() {
@@ -101,7 +98,7 @@ If called in an object method, 'this' references the object itself.
   }
   const gen = new NameGenerator();
 ```
-In the constructor, 'this' is used to attach parts of the class together.
+Methods like call(), apply(), and bind() can refer this to any object.
 
 If called anywhere else, 'this' references the global object.
 
