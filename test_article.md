@@ -17,9 +17,7 @@ It cannot be used as a function constructor
 # Article: Arrow Functions
 
 ___
-
-## Syntax
-
+<p align="center">## Syntax</p>
 
 <p align="center">
     <img src="./pictures/arrow_functions.PNG" style="width: 60%"/>
