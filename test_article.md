@@ -1,23 +1,17 @@
 
 
- - [ ] 1. Syntax; usage of const/let; single vs multiple params; returning objects;
- - [ ] 2. Functions: Regular vs. Arrow Functions; Regular Function Binding; Single-line vs Multiple-line Arrow Functions;
- - [ ]  Absence of the "function" keyword; It cannot be used as a function constructor
- - [ ] 3. 'this'
- - [ x] 3.1 What does 'this' referenceto
- - [x ] 3.2 'this'
- - [ ] 3.3 What does it refer to
+
 
 Syntax
 Compared to normal functions definition -- usage of const/let
 
 Returning objects in particular
 
-Differences between regular and arrow functions
+
 Absence of the "function" keyword
 It cannot be used as a function constructor
 
-Binding a regular function
+
 
 
 # Article: Arrow Functions
@@ -48,29 +42,39 @@ ___
 //or
   var multiply = (x,y) => {return x*y};  
 ```
+___
 
 ### Single parameters vs Multiple parameters
 
 When parsing a single parameter, neither a return statement, nor parenthesis are required.
 
 ```javascript
-param => expression
+x => x * x
 ```
 
 If we want to parse multiple parameters, parenthesis will be required.
 
 ```javascript
-(param1, paramN) => expression
+(x, y) => x * y
 ```
 ___
 
 ### Single-line Arrow Functions vs Multiple-line Arrow Functions
 
 Multiline statements require body braces and a return statement:
+
 ```javascript
+x => {
+  let a = 1;
+  return x + a;
+}
 ```
 
 ```javascript
+(x, y) => {
+  let a = 1;
+  return x + y + a;
+}
 ```
 
 ___
@@ -79,9 +83,9 @@ ___
 
 
 ___
-### Regular Functions
-What are regular functions? 
-- Binding
+### Regular Functions: Binding
+
+
 ___
 ### Defining 'this'
 
