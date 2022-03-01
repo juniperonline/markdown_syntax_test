@@ -71,6 +71,17 @@ We can simplify the usage of 'this', by the formula:
 <img src="./pictures/this_formula.png" />
 </center>
 
+<img 
+    style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           vertical-align: middle;
+           text-align: center;
+           width: 100%;"
+    src="./pictures/this_formula.png" 
+    alt="formula">
+</img>
+
 If called inside an object method, 'this' references the object that the method belongs to.
 
 ```javascript
