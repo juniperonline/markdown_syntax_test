@@ -76,6 +76,7 @@ We can simplify the usage of 'this', by the formula:
            margin-left: auto;
            margin-right: auto;
            vertical-align: middle;
+           text-align: center;
            width: 60%;"
     src="./pictures/this_formula.png" 
     alt="formula">
