@@ -22,7 +22,7 @@ ___
 
 
 <p align="center">
-    <img src="./pictures/arrow_functions.png" style="width: 60%"/>
+    <img src="./pictures/arrow_functions.PNG" style="width: 60%"/>
 </p>
 
 ___
