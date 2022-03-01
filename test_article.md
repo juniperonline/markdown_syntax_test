@@ -67,14 +67,9 @@ It is entirely determined by **how** a function is called, and not **where** it 
 
 We can simplify the usage of 'this', by the formula: 
 
-<img 
-    style="display: block; 
-           margin-left: auto;
-           margin-right: auto;
-           width: 30%;"
-    src="./pictures/this_formula.png" >
-</img>
-![image info](./pictures/this_formula.png)
+<center>
+<img src="./pictures/this_formula.png" />
+</center>
 
 If called inside an object method, 'this' references the object that the method belongs to.
 
