@@ -76,7 +76,7 @@ We can simplify the usage of 'this', by the formula:
 </img>
 ![image info](./pictures/this_formula.png)
 
-If called inside an object method, 'this' references the object itself.
+If called inside an object method, 'this' references the object that the method belongs to.
 
 ```javascript
   class NameGenerator {
@@ -98,7 +98,16 @@ If called inside an object method, 'this' references the object itself.
   }
   const gen = new NameGenerator();
 ```
-Methods like call(), apply(), and bind() can refer this to any object.
+
+However, we can use methods like call(), apply(), and bind() to control what this refers to.
+The call() and apply() methods are interchangeable. The only way they differ is the way they supply their arguments: call() allows passing arguments one by one, separating them with commas; while apply() uses an array. 
+The bind() method allows passing an array or any number of arguments, but returns a new function.
+
+We can use bind() in our example, since we don't know when the event will be fired, but we know the desired result.
+
+```javascript
+      btn.addEventListener ('click', this.addName.bind(this));
+```
 
 If called anywhere else, 'this' references the global object.
 
@@ -115,7 +124,7 @@ ask(
 );
 ```
 
-There are a few ways to handle and control what 'this' refers to.
+There are a few other ways to handle and control what 'this' refers to.
 
 
 ### References
