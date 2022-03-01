@@ -72,8 +72,11 @@ We can simplify the usage of 'this', by the formula:
 </center>
 
 <img 
-    style="text-align: center;
-           width: 0%;"
+    style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           vertical-align: middle;
+           width: 60%;"
     src="./pictures/this_formula.png" 
     alt="formula">
 </img>
