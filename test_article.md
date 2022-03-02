@@ -1,12 +1,4 @@
-
-
-
-
-Syntax
-Compared to normal functions definition -- usage of const/let
-
-Returning objects in particular
-
+usage of const/let
 
 Absence of the "function" keyword
 It cannot be used as a function constructor
@@ -34,7 +26,7 @@ The left side represents the parameters and the right side - the expression or s
 
 ___
 
-### Comparing regular functions to arrow functions (usage const and let) 
+### Comparing regular functions to arrow functions 
 
 Let's look at a simple arrow function: 
 
@@ -50,11 +42,13 @@ let func = function(param1, param2, ..., paramN) {
   return expression;
 };
 ```
-//const / let
+
+#### using ```const``` and ```let```
+
 ___
 ## Parameters 
 //or arguments?
-##### Single parameters 
+#### Single parameters 
 
 When parsing a single parameter, neither a return statement, nor parenthesis are required, making that function very short.
 
@@ -63,7 +57,7 @@ let double = n => n * 2; // roughly the same as: let double = function(n) { retu
 alert( double(3) );
 ```
 
-##### Multiple parameters
+#### Multiple parameters
 
 If we want to parse multiple parameters, we want them inside parenthesis.
 
@@ -81,7 +75,7 @@ alert( sum(1, 2) ); // 3
 ```
 As you can see, (a, b) => a + b means a function that accepts two arguments named a and b. Upon the execution, it evaluates the expression a + b and returns the result.
 
-##### No parameters
+#### No parameters
 
 If there are no parameters, parentheses will be empty (but they should be present):
 
@@ -115,6 +109,10 @@ alert( sum(1, 2) );
 
 ___
 
+### Returning objects
+
+___
+
 ### Differences between Regular Functions and Arrow Functions
 
 What are the differences? 
@@ -126,7 +124,8 @@ Arrow functions are always anonymous.
 
 [Storing a function in a variable example](https://youtube.com/clip/UgkxUmjy9O1HzRdT7u6ILrAtY2RRPMq4YCDM )
 
-Second difference is that regular function may be hoisted - what does that mean? That the function can be declared and call it before the actual declaration. This is not possible with an arrow function, because it doesn't have a name.
+Second difference is that regular functions may be hoisted - what does that mean? That the function can be declared and call it before the actual declaration. This is not possible with an arrow function, because it doesn't have a name.
+//hoisting example
 
 The third difference is that ```this``` gets handled differently within arrow functions. With arrow functions the this keyword always represents the object that defined the arrow function. A detailed description of this you can find in the link below.
 
