@@ -46,6 +46,14 @@ let func = function(param1, param2, ..., paramN) {
 Now that we've covered some syntactic differences between regular and arrow functions, let's look at some variables.
 
 ```let``` is a block-scoped variable, which means that the variable dies when the block is done.
+The variable that we declare with ```let``` can be modified, but not re-declared. We use it when we know tha value of the variable will change within its scope.
+
+This, however, is not the case with ```const```.  They are also block-scoped, but they can neither be re-declared, nor changed.
+
+<p align="center">
+    <img src="./pictures/let_greet.PNG" style="width: 60%"/>
+</p>
+
 
 ___
 
