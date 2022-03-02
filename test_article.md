@@ -24,7 +24,9 @@ The left side represents the parameters and the right side - the expression or s
     <img src="./pictures/arrow_functions.PNG" style="width: 60%"/>
 </p>
 
+
 ___
+
 
 ### Comparing regular functions to arrow functions 
 
@@ -46,7 +48,9 @@ let func = function(param1, param2, ..., paramN) {
 #### using ```const``` and ```let```
 
 ___
-## Parameters 
+
+
+### Parameters 
 //or arguments?
 #### Single parameters 
 
@@ -84,6 +88,8 @@ let sayHi = () => alert("Hello!");
 
 sayHi();
 ```
+
+
 ___
 
 ### Single-line Arrow Functions vs Multiple-line Arrow Functions
@@ -110,6 +116,8 @@ alert( sum(1, 2) );
 ___
 
 ### Returning objects
+
+
 
 ___
 
@@ -143,11 +151,13 @@ To recap, let's look at the differences listed in a table.
 | ```this``` can be used  | ```this``` will be global |
 |Access to arguments |No access to arguments|
 
+
 ___
 ### Regular Functions: Binding
 
 
 ___
+
 ### Defining 'this'
 
 In JavaScript, ```this``` is used a bit differently, than in other languages like C++ or Java. The keyword ```this``` refers to the object executing the current function. It is entirely determined by **how** a function is called, and not **where** it gets defined. 
