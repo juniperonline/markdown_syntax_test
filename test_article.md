@@ -16,15 +16,59 @@ It cannot be used as a function constructor
 
 # Article: Arrow Functions
 
+In this lecture, we will get familiar with one of the most interesting and unique concepts for Javascript - Arrow Functions. 
+Arrow functions are a compact alternative to the traditional function syntax. However, their use is limited.
+
+
 ___
 
 ## Syntax
 
+The name of the function we derive from the 'fat arrow' we use in between the two sides of the function.
+The left side represents the parameters and the right side - the expression. 
+Some parts of the syntax are optional, as we will find out in later sections of the article.
 
 <p align="center">
     <img src="./pictures/arrow_functions.PNG" style="width: 60%"/>
 </p>
 
+___
+### Single parameters vs Multiple parameters
+
+When parsing a single parameter, neither a return statement, nor parenthesis are required.
+
+TO DO: 
+better example
+```javascript
+x => x * x
+```
+
+If we want to parse multiple parameters, parenthesis will be required.
+
+```javascript
+(x, y) => x * y
+```
+___
+
+### Single-line Arrow Functions vs Multiple-line Arrow Functions
+
+Single-line functions don't require body braces.
+
+```javascript
+x => {
+  let a = 1;
+  return x + a;
+}
+```
+
+Multiline statements require body braces and a return statement. In this case, we've got multiple parameters, so we can see the full syntax.
+
+```javascript
+(x, y) => {
+  let a = 1;
+  return x + y + a;
+}
+```
 ___
 
 
@@ -43,44 +87,26 @@ ___
   var multiply = (x,y) => {return x*y};  
 ```
 ___
-
-### Single parameters vs Multiple parameters
-
-When parsing a single parameter, neither a return statement, nor parenthesis are required.
-
-```javascript
-x => x * x
-```
-
-If we want to parse multiple parameters, parenthesis will be required.
-
-```javascript
-(x, y) => x * y
-```
-___
-
-### Single-line Arrow Functions vs Multiple-line Arrow Functions
-
-Multiline statements require body braces and a return statement:
-
-```javascript
-x => {
-  let a = 1;
-  return x + a;
-}
-```
-
-```javascript
-(x, y) => {
-  let a = 1;
-  return x + y + a;
-}
-```
-
 ___
 
 ### Differences between Regular Functions and Arrow Functions
 
+What are the differences? 
+
+One of the main differences between them is the syntax. Please look at section "Comparing traditional functions to arrow functions" to see a visual representation of that difference.
+
+Another main difference is naming. We can not name an arrow function, however we can store it in a variable and access it that way.
+
+[![Alt text](https://img.youtube.com/vi/v=thXp0_py9X4/0.jpg)](https://youtube.com/clip/UgkxUmjy9O1HzRdT7u6ILrAtY2RRPMq4YCDM)
+
+
+| Regular Function  | Arrow Function |
+| ----------------- | ------------- |
+| Traditional Syntax | () => {} |
+| Can be named or anonymous | Always anonymous  |
+| Can be hoisted  | Not possible, unless inside an object  |
+| 'this' can be used  | 'this' will be global |
+|Access to arguments |No access to arguments|
 
 ___
 ### Regular Functions: Binding
