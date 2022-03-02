@@ -7,15 +7,15 @@ In this lesson, we will get familiar with one of the most interesting and unique
 Arrow functions are a compact alternative to the traditional function syntax. However, they are quite particular and so is their usage. 
 Let's dive in!
 
-//small changes to grammar. Lesson instead of lecture and replacing "of" with "in" refference to the unique concept in javascript
+//small changes to grammar. Lesson instead of lecture and replacing "of" with "in" refference to the unique concept in javascript//
 ___
 
 ## Syntax
 
 The name of the function is derived from the 'fat arrow' we use in between the two sides of the function.
-The left side represents the parameters and the right side - the expression or statement of the function. 
+The left side represents the parameters and the right side consists of the expression or statement of the function. 
 
-//we derive -> is derived
+//we derive -> is derived, right side consists of....//
 
 <p align="center">
     <img src="./pictures/arrow_functions.PNG" style="width: 60%"/>
@@ -28,7 +28,7 @@ ___
 ### Comparing regular functions to arrow functions 
 
 Let's take a look at a simple arrow function: 
-//minor grammer change
+//minor grammer change//
 
 ```javascript
 //Arrow Function
@@ -36,7 +36,7 @@ Let's take a look at a simple arrow function:
 ```
 That creates a function ```func``` which accepts parameters ```param1..paramN```, then evaluates the ```expression``` using their values and returns its result. This is a shorter form of the traditional function:
 
-//that -> Which, that->this
+//that -> Which, that->this//
 
 ```javascript
 //Regular Function
@@ -76,7 +76,7 @@ alert( double(3) );
 #### Multiple parameters
 
 If we want to parse multiple parameters, we need them inside parenthesis.
-//want->need
+//want->need//
 
 ```javascript
 let sum = (a, b) => a + b;
@@ -166,7 +166,7 @@ ___
 What are the differences? 
 
 One of the main differences between them is the syntax. Please look at the section "Comparing traditional functions to arrow functions" to see a visual representation of this difference.
-//that->this + minor spelling
+//that->this + minor spelling//
 
 Another main difference is naming. We can not name an arrow function, however we can store it in a variable and access it that way.
 Arrow functions are always anonymous.
@@ -175,11 +175,11 @@ Arrow functions are always anonymous.
 
 Second difference is that regular functions can be hoisted - what does that mean? It means that the function can be declared and call it before the actual declaration. This is not possible with an arrow function, because it doesn't have a name.
 //hoisting example
-//may->can. + it means that
+//may->can. + it means that//
 
 The third difference is that ```this``` gets handled differently within arrow functions. With arrow functions the "this" keyword always represents the object that defined the arrow function initially. A detailed description of this can be found in the link below.
 
-//initially, of this you can find -> of this can be found
+//initially, of this you can find -> of this can be found//
 
 [#2.4 'this' behaviour in Arrow Function vs. Regular Functions in JavaScript.](https://youtu.be/ebfXbjY5nhg )
 
@@ -243,7 +243,7 @@ The ```bind()``` method allows passing an array or any number of arguments, but 
 
 We can use ```bind()``` in our constructor as our best bet, since we don't know when the event will be fired, but we do know the desired result.
 
-//minor spelling, comma use etc
+//minor spelling, comma use etc//
 
 ```javascript
       btn.addEventListener ('click', this.addName.bind(this));
