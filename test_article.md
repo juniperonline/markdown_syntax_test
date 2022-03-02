@@ -97,8 +97,7 @@ One of the main differences between them is the syntax. Please look at section "
 
 Another main difference is naming. We can not name an arrow function, however we can store it in a variable and access it that way.
 
-[![Alt text](https://img.youtube.com/vi/v=thXp0_py9X4/0.jpg)](https://youtube.com/clip/UgkxUmjy9O1HzRdT7u6ILrAtY2RRPMq4YCDM)
-
+[![Arrow Functions example]()](https://youtube.com/clip/UgkxUmjy9O1HzRdT7u6ILrAtY2RRPMq4YCDM "Arrow Functions")
 
 | Regular Function  | Arrow Function |
 | ----------------- | ------------- |
