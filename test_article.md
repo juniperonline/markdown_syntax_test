@@ -1,15 +1,11 @@
-usage of const/let
-
 Absence of the "function" keyword
 It cannot be used as a function constructor
-
-
-
 
 # Article: Arrow Functions
 
 In this lecture, we will get familiar with one of the most interesting and unique concepts for Javascript - Arrow Functions. 
-Arrow functions are a compact alternative to the traditional function syntax. However, their use is limited.
+Arrow functions are a compact alternative to the traditional function syntax. However, they are quite particular and so is their usage. 
+Let's dive in!
 
 
 ___
@@ -46,6 +42,10 @@ let func = function(param1, param2, ..., paramN) {
 ```
 
 #### using ```const``` and ```let```
+
+Now that we've covered some syntactic differences between regular and arrow functions, let's look at some variables.
+
+```let``` is a block-scoped variable, which means that the variable dies when the block is done.
 
 ___
 
@@ -115,9 +115,34 @@ alert( sum(1, 2) );
 
 ___
 
-### Returning objects
+### Returning objects in particular
 
+There are a few ways to return an object in an arrow function. Depending on the case, what is returned will be different and so will be the syntax.
 
+The first and most common way is to use the longform syntax. It allows us to write variables before the ```return``` braces.
+
+```javascript
+const addCake = (name) => {
+  return {
+    name
+  };
+};
+
+const cake_01 = addCake('Chocolate Cake');
+console.log(cake_01);
+```
+//develop the example further 
+
+A simpler way to write this will be wrapping the intended object in brackets like so:
+
+```javascript
+const addCake = (name) => ({
+  name,
+  price: 499
+});
+```
+
+By doing this, we create an expression and therefore return an expression.
 
 ___
 
@@ -193,23 +218,25 @@ If called inside an object method, ```this``` references the object that the met
 
 In this example, we see that ```this``` will always point to the object that owns the object method.
 
-However, we can use methods like ```call()```, ```apply()```, and ```bind()``` to control what ```this``` refers to.
+We can use methods like ```call()```, ```apply()```, and ```bind()``` to control what ```this``` refers to.
 The ```call()``` and ```apply()``` methods are interchangeable. The only way they differ is the way they supply their arguments: ```call()``` allows passing arguments one by one, separating them with commas; while ```apply()``` uses an array. 
 The ```bind()``` method allows passing an array or any number of arguments, but returns a new function.
 
 We can use ```bind()``` in our constructor as our best bet, since we don't know when the event will be fired, but we know the desired result.
 
-Note: The methods above have no effect on arrow functions. Check later!!!!
-
 ```javascript
       btn.addEventListener ('click', this.addName.bind(this));
 ```
 
-At the global level, ```this``` is equivalent to a global object called ```global``` or ```window``` in browsers.
+However, these methods are **NOT** suitable when using arrow functions!
 
+At the global level, ```this``` is equivalent to a global object called ```global``` or ```window``` in browsers.
+//this in arrow functions
 
 ### References
 
 1. Defining 'this' : formula [Understanding Functions and 'this' In The World of ES2017](https://youtu.be/gvicrj31JOM)
 2. 'this' in object method example [JS "this" and Function References - What is it all about?](https://youtu.be/Pv9flm-80vM)
 3. [Arrow Function Basics](https://javascript.info/arrow-functions-basics)
+4. [const and let variables](https://brad-bartlett.medium.com/es6-advancements-arrow-functions-and-const-let-variables-f82aa960b03d)
+5. [Ways to Return an Object from an Arrow Function](https://ultimatecourses.com/blog/return-object-arrow-function)
