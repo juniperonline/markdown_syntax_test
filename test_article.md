@@ -3,19 +3,17 @@ It cannot be used as a function constructor
 
 # Article: Arrow Functions
 
-In this lesson, we will get familiar with one of the most interesting and unique concepts in Javascript - Arrow Functions. 
-Arrow functions are a compact alternative to the traditional function syntax. However, they are quite particular and so is their usage. 
+In this lecture, we will get familiar with one of the most interesting and unique concepts of Javascript - Arrow Functions. 
+Arrow functions are a compact alternative to the traditional function syntax. However, they are quite particular and we have to be careful and wise when and how to use them. 
 Let's dive in!
 
-//small changes to grammar. Lesson instead of lecture and replacing "of" with "in" refference to the unique concept in javascript//
 ___
 
 ## Syntax
 
 The name of the function is derived from the 'fat arrow' we use in between the two sides of the function.
-The left side represents the parameters and the right side consists of the expression or statement of the function. 
+The left side represents the parameters and the right side is derived of the expression or statement of the function. 
 
-//we derive -> is derived, right side consists of....//
 
 <p align="center">
     <img src="./pictures/arrow_functions.PNG" style="width: 60%"/>
@@ -28,15 +26,14 @@ ___
 ### Comparing regular functions to arrow functions 
 
 Let's take a look at a simple arrow function: 
-//minor grammer change//
 
 ```javascript
 //Arrow Function
   let func = (param1, param2, ..., paramN) => expression;  
 ```
-That creates a function ```func``` which accepts parameters ```param1..paramN```, then evaluates the ```expression``` using their values and returns its result. This is a shorter form of the traditional function:
 
-//that -> Which, that->this//
+That creates a function ```func``` that accepts parameters ```param1..paramN```, then evaluates the ```expression``` using their values and returns its result. That is a shorter form of the traditional function:
+
 
 ```javascript
 //Regular Function
@@ -59,6 +56,35 @@ This, however, is not the case with ```const```.  They are also block-scoped, bu
 </p>
 
 This, however, is not the case with ```const```.  They are also block-scoped, but they can neither be re-declared, nor changed.
+In the following example, we create the object ```cake_01``` using the arrow function ```addVeganCake``` and ```const```. Knowing that there will be a part of the object that always stays the same, we can define that in the ```return``` statement.
+
+
+```javascript
+const addVeganCake = (name) => {
+  return {
+    name,
+    diet: "vegan",
+  };
+};
+
+const cake_01 = addVeganCake('Banana Chocolate Cake');
+console.log(cake_01.name);
+```
+
+___
+
+##### Arrow functions are callable but not constructable
+
+If a function is constructable, it can be called with ```new```, i.e. ```new User()```. 
+If a function is callable, it can be called without using ```new```.
+
+Functions created through function declarations or expressions are both constructable and callable.
+
+Arrow functions (and methods) are ***only callable*** while class constructors are only constructable.
+
+If you are trying to call a non-callable function or to construct a non-constructable function, you will get a runtime error.
+
+[You can read more on callable functions here.](https://exploringjs.com/impatient-js/ch_callables.html#arrow-functions)
 
 ___
 
@@ -76,8 +102,7 @@ alert( double(3) );
 
 #### Multiple parameters
 
-If we want to parse multiple parameters, we need them inside parenthesis.
-//want->need//
+If we need to parse multiple parameters, we need them inside parentheses.
 
 ```javascript
 let sum = (a, b) => a + b;
@@ -91,9 +116,9 @@ let sum = function(a, b) {
 
 alert( sum(1, 2) ); // 3
 ```
-As you can see, (a, b) => a + b is a function that accepts two arguments named a and b. Upon their execution, it evaluates the expression a + b and returns the result.
 
-//means->is, the->their
+As you can see, ```(a, b) => a + b``` is a function that accepts two arguments named a and b. Upon its execution, it evaluates the expression a + b and returns the result.
+
 
 #### No parameters
 
@@ -117,7 +142,9 @@ let sum = (a, b) => a + b;
 alert( sum(1, 2) );
 ```
 
+
 Multiline statements require body braces and a return statement. In this case, we've got multiple parameters, so we can see the full syntax.
+
 
 ```javascript
 let sum = (a, b) => {  // the curly brace opens a multiline function
@@ -137,16 +164,17 @@ There are a few ways to return an object in an arrow function. Depending on the 
 The first and most common way is to use the longform syntax. It allows us to write variables before the ```return``` braces.
 
 ```javascript
-const addCake = (name) => {
+const addVeganCake = (name) => {
   return {
-    name
+    name,
+    diet: "vegan",
   };
 };
 
-const cake_01 = addCake('Chocolate Cake');
+const cake_01 = addVeganCake('Banana Chocolate Cake');
 console.log(cake_01);
 ```
-//develop the example further 
+
 
 A simpler way to write this will be wrapping the intended object in brackets like so:
 
@@ -165,25 +193,22 @@ ___
 
 What are the differences? 
 
-One of the main differences between them is the syntax. Please look at the section "Comparing traditional functions to arrow functions" to see a visual representation of this difference.
-//that->this + minor spelling//
+One of the main differences between them is the syntax. Please look at the section "Comparing traditional functions to arrow functions" to see a visual representation of that difference.
 
 Another main difference is naming. We can not name an arrow function, however we can store it in a variable and access it that way.
 Arrow functions are always anonymous.
 
 [Storing a function in a variable example](https://youtube.com/clip/UgkxUmjy9O1HzRdT7u6ILrAtY2RRPMq4YCDM )
 
-Second difference is that regular functions can be hoisted - what does that mean? It means that the function can be declared and call it before the actual declaration. This is not possible with an arrow function, because it doesn't have a name.
-//hoisting example
-//may->can. + it means that//
+Second difference is that regular functions can be **hoisted** - what does that mean? It means that the function can be declared and call it before the actual declaration. This is not possible with an arrow function, because it doesn't have a name.
 
-The third difference is that ```this``` gets handled differently within arrow functions. With arrow functions the "this" keyword always represents the object that defined the arrow function initially. A detailed description of this can be found in the link below.
+The third difference is that ```this``` gets handled differently within arrow functions. With arrow functions the ```this``` keyword always represents the object that defined the arrow function initially. A detailed description of this you can find in the link below.
 
-//initially, of this you can find -> of this can be found//
 
 [#2.4 'this' behaviour in Arrow Function vs. Regular Functions in JavaScript.](https://youtu.be/ebfXbjY5nhg )
 
-Last, but not least, the fact that arrow functions do not have an arguments array, but instead they get bound to arguments of enclosing scope.
+In JS arguments array in functions is a special object that can be used to get all the arguments passed to the function. 
+Arrow functions do not have an arguments array, but instead they get bound to arguments of enclosing scope.
 
 To recap, let's look at the differences listed in a table.
 
@@ -193,7 +218,7 @@ To recap, let's look at the differences listed in a table.
 | Can be named or anonymous | Always anonymous  |
 | Can be hoisted  | Not possible, unless inside an object  |
 | ```this``` can be used  | ```this``` will be global |
-|Access to arguments |No access to arguments|
+|Args array |No access to args array|
 
 
 ___
@@ -221,7 +246,7 @@ If called inside an object method, ```this``` references the object that the met
       this.names = ['Max', 'Anna', 'George'];
       this.currentName = 0; 
       this.addName();  // 'this' here refers to the constructor
-      btn.addEventListener ('click', this.addName); // but 'this' refers to the button object
+      btn.addEventListener ('click', this.addName); // but 'this' here refers to the button object
     }
 
     addName() {
@@ -243,7 +268,6 @@ The ```bind()``` method allows passing an array or any number of arguments, but 
 
 We can use ```bind()``` in our constructor as our best bet, since we don't know when the event will be fired, but we do know the desired result.
 
-//minor spelling, comma use etc//
 
 ```javascript
       btn.addEventListener ('click', this.addName.bind(this));
@@ -251,8 +275,10 @@ We can use ```bind()``` in our constructor as our best bet, since we don't know 
 
 However, these methods are **NOT** suitable when using arrow functions!
 
+#### ```this``` in arrow functions
+
 At the global level, ```this``` is equivalent to a global object called ```global``` or ```window``` in browsers.
-//this in arrow functions
+In an arrow function, ```this``` belongs to the global object.
 
 ### References
 
@@ -261,3 +287,8 @@ At the global level, ```this``` is equivalent to a global object called ```globa
 3. [Arrow Function Basics](https://javascript.info/arrow-functions-basics)
 4. [const and let variables](https://brad-bartlett.medium.com/es6-advancements-arrow-functions-and-const-let-variables-f82aa960b03d)
 5. [Ways to Return an Object from an Arrow Function](https://ultimatecourses.com/blog/return-object-arrow-function)
+6. [What is hoisting in ES6 and how to make it work for you](https://medium.com/swlh/hoist-me-up-scotty-8a52e3d47041)
+7. ["this" keyword in an arrow function](https://www.tutorialspoint.com/how-to-access-this-keyword-inside-an-arrow-function-in-javascript)
+
+
+### Author
