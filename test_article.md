@@ -178,10 +178,10 @@ console.log(cake_01);
 A simpler way to write this will be wrapping the intended object in brackets like so:
 
 ```javascript
-const addCake = (name) => ({
+const addVeganCake = (name) => ({
   name,
-  price: 499
-});
+  diet: "vegan",
+  });
 ```
 
 By doing this, we create an expression and therefore return an expression.
@@ -216,7 +216,7 @@ To recap, let's look at the differences listed in a table.
 | Traditional Syntax | (params) => {statements} |
 | Can be named or anonymous | Always anonymous  |
 | Can be hoisted  | Not possible, unless inside an object  |
-| ```this``` can be used  | ```this``` will be global |
+| ```this``` refers to owner of fn where called | ```this``` refers to owner of outside scope |
 |Args array |No access to args array|
 
 ___
@@ -235,32 +235,45 @@ If called inside a regular object method (and not an arrow function), ```this```
 
 At the global level, ```this``` is equivalent to a global object called ```global``` or ```window``` in browsers.
 
+___
+
 ### Binding a regular function 
 
 Let's look at the following example:
 
 ```javascript
-  class NameGenerator {
-    constructor() {
-      const btn = document.querySelector['button'];
-      this.names = ['Max', 'Anna', 'George'];
-      this.currentName = 0; 
-      this.addName();  // 'this' here refers to the constructor of the NameGenerator class
-      btn.addEventListener ('click', this.addName); // but 'this' here refers to the button object
-    }
 
+class NameField {
+    constructor(name) {
+        const field = document.createElement('li');
+        field.textContent = name;
+        const nameListHook = document.querySelector('#names');
+        nameListHook.appendChild(field);
+    }
+}
+
+class NameGenerator {
+    constructor() {
+        const btn = document.querySelector('button');
+        this.names = ['Max', 'Manu', 'Anna'];
+        this.currentName = 0; //'this' here refers to the constructor
+        btn.addEventListener('click', this.addName); // but 'this' refers to the button object
+    }
+    
     addName() {
-      const name = new NameField(this.names[this.currentName]);
-      this.currentName++;
-      if (this.currentName >= this.names.length) {
+        console.log(this);
+        const name = new NameField(this.names[this.currentName]);
+        this.currentName++;
+        if (this.currentName >= this.names.length) {
             this.currentName = 0;
         }
-     }
-  }
-  const gen = new NameGenerator();
+    }
+}
+
+const gen = new NameGenerator();
 ```
 
-In this example, we see that ```this``` will always point to the object that owns the object method. But how do we go about fixing this?
+In this example, we see that ```this``` will always point to the object that owns the object method **where ```this``` gets called**. But how do we go about fixing this?
 
 We can use methods like ```call()```, ```apply()```, and ```bind()``` to control what ```this``` refers to.
 
@@ -275,15 +288,21 @@ We can use ```bind()``` in our constructor as our best bet, since we don't know 
       btn.addEventListener ('click', this.addName.bind(this));
 ```
 
-The result of ```this.addName.bind(this)``` is a special function-like “exotic object”, that is callable as function and transparently passes the call to ```addName``` setting ```this``` back to the owner of the function, which is ```NameGenerator```.
+The result of ```this.addName.bind(this)``` is a special function-like “exotic object”, that is callable as a function and transparently passes the call to ```addName``` setting ```this``` back to the owner of the function, which is ```NameGenerator```.
+
+Great job, now let's see another way of going about it.
 
 ___
 
 #### ```this``` in arrow functions
 
-In an arrow function, ```this``` belongs to the global object.
+Introducing an anonymous arrow function in place of ```this.addName.bind(this)``` will work as well. That is because arrow functions let ```this``` work in a more intuitive way - it will always refer to the owner of the outside scope of the function. The anonymous function inherits the context of ```this``` since it does not get one by default.
 
-
+```javascript
+    btn.addEventListener('click', () => {
+        this.addName();
+    });
+```
 ___
 
 
