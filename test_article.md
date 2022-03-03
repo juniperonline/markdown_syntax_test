@@ -72,7 +72,7 @@ console.log(cake_01.name);
 
 ___
 
-##### Arrow functions are callable but not constructable
+##### Arrow functions are callable, but not constructable
 
 If a function is constructable, it can be called with ```new```, i.e. ```new User()```. 
 If a function is callable, it can be called without using ```new```.
