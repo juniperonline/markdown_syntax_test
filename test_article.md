@@ -156,9 +156,11 @@ ___
 
 ### Returning objects in particular
 
-There are a few ways to return an object in an arrow function. Depending on the case, what is returned will be different and so will be the syntax.
+There are a few ways to return an object in an arrow function. Depending on the case, what is returned will be different, and so will it's syntax.
 
-The first and most common way is to use the longform syntax. It allows us to write variables before the ```return``` braces.
+The first and most common way is to use longform syntax.  this lets us write our variables before the ```return``` braces.
+
+//be the -> it's. It allows-> lets us...
 
 ```javascript
 const addVeganCake = (name) => {
@@ -173,7 +175,7 @@ console.log(cake_01);
 ```
 
 
-A simpler way to write this will be wrapping the intended object in brackets like so:
+A simpler way to write this is wrapping the intended object in brackets like so:
 
 ```javascript
 const addVeganCake = (name) => ({
@@ -190,7 +192,7 @@ ___
 
 What are the differences? 
 
-One of the main differences between them is the syntax. Please look at the section "Comparing traditional functions to arrow functions" to see a visual representation of that difference.
+One of the main differences between them is the syntax. Please look at the section: "Comparing traditional functions to arrow functions" to see a visual representation of that difference.
 
 Another main difference is naming. We can not name an arrow function, however we can store it in a variable and access it that way.
 Arrow functions are always anonymous.
@@ -229,7 +231,7 @@ If we could simplify the usage of ```this```, it would look something like this:
     <img src="./pictures/this_formula.png" style="width: 60%"/>
 </p>
 
-If called inside a regular object method (and not an arrow function), ```this``` references the object that the method belongs to.
+If called inside of a regular object method (and not an arrow function), ```this``` references the object that the method belongs to.
 
 At the global level, ```this``` is equivalent to a global object called ```global``` or ```window``` in browsers.
 
@@ -271,7 +273,7 @@ class NameGenerator {
 const gen = new NameGenerator();
 ```
 
-In this example, we see that ```this``` will always point to the object that owns the object method **where ```this``` gets called**. But how do we go about fixing this?
+In this example, we see that ```this``` always points to the object that owns the object-method **where ```this``` gets called**. But how do we go about fixing this?
 
 We can use methods like ```call()```, ```apply()```, and ```bind()``` to control what ```this``` refers to.
 
