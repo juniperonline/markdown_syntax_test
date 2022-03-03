@@ -48,7 +48,6 @@ Now that we've covered some syntactic differences between regular and arrow func
 
 ```let``` is a block-scoped variable, which means that the variable dies when the block is done.
 The variable that we declare with ```let``` can be modified, but not re-declared. We use it when we know that the value of the variable will change within its scope of operation.
-//minor spelling and grammar
 This, however, is not the case with ```const```.  They are also block-scoped, but they can neither be re-declared, nor changed.
 
 <p align="center">
@@ -220,11 +219,6 @@ To recap, let's look at the differences listed in a table.
 | ```this``` can be used  | ```this``` will be global |
 |Args array |No access to args array|
 
-
-___
-### Regular Functions: Binding
-
-
 ___
 
 ### Defining 'this'
@@ -237,7 +231,13 @@ If we could simplify the usage of ```this```, it would look something like this:
     <img src="./pictures/this_formula.png" style="width: 60%"/>
 </p>
 
-If called inside an object method, ```this``` references the object that the method belongs to.
+If called inside a regular object method (and not an arrow function), ```this``` references the object that the method belongs to.
+
+At the global level, ```this``` is equivalent to a global object called ```global``` or ```window``` in browsers.
+
+### Binding a regular function 
+
+Let's look at the following example:
 
 ```javascript
   class NameGenerator {
@@ -245,7 +245,7 @@ If called inside an object method, ```this``` references the object that the met
       const btn = document.querySelector['button'];
       this.names = ['Max', 'Anna', 'George'];
       this.currentName = 0; 
-      this.addName();  // 'this' here refers to the constructor
+      this.addName();  // 'this' here refers to the constructor of the NameGenerator class
       btn.addEventListener ('click', this.addName); // but 'this' here refers to the button object
     }
 
@@ -260,25 +260,32 @@ If called inside an object method, ```this``` references the object that the met
   const gen = new NameGenerator();
 ```
 
-In this example, we see that ```this``` will always point to the object that owns the object method.
+In this example, we see that ```this``` will always point to the object that owns the object method. But how do we go about fixing this?
 
 We can use methods like ```call()```, ```apply()```, and ```bind()``` to control what ```this``` refers to.
+
+However, these methods are **NOT** suitable when using arrow functions!
+
 The ```call()``` and ```apply()``` methods are interchangeable. The only way they differ is the way that they supply their arguments: ```call()``` allows passing arguments one by one, separating them with commas; while ```apply()``` uses an array. 
 The ```bind()``` method allows passing an array or any number of arguments, but returns a new function.
 
 We can use ```bind()``` in our constructor as our best bet, since we don't know when the event will be fired, but we do know the desired result.
 
-
 ```javascript
       btn.addEventListener ('click', this.addName.bind(this));
 ```
 
-However, these methods are **NOT** suitable when using arrow functions!
+The result of ```this.addName.bind(this)``` is a special function-like “exotic object”, that is callable as function and transparently passes the call to ```addName``` setting ```this``` back to the owner of the function, which is ```NameGenerator```.
+
+___
 
 #### ```this``` in arrow functions
 
-At the global level, ```this``` is equivalent to a global object called ```global``` or ```window``` in browsers.
 In an arrow function, ```this``` belongs to the global object.
+
+
+___
+
 
 ### References
 
