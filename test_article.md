@@ -1,5 +1,3 @@
-Absence of the "function" keyword
-It cannot be used as a function constructor
 
 # Article: Arrow Functions
 
