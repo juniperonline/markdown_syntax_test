@@ -48,18 +48,17 @@ Now that we've covered some syntactic differences between regular and arrow func
 ```let``` is a block-scoped variable, which means that the variable dies when the block is done.
 The variable that we declare with ```let``` can be modified, but not re-declared. We use it when we know tha value of the variable will change within its scope.
 
-This, however, is not the case with ```const```.  They are also block-scoped, but they can neither be re-declared, nor changed.
-
 <p align="center">
     <img src="./pictures/let_greet.PNG" style="width: 60%"/>
 </p>
 
+This, however, is not the case with ```const```.  They are also block-scoped, but they can neither be re-declared, nor changed.
 
 ___
 
 
 ### Parameters 
-//or arguments?
+
 #### Single parameters 
 
 When parsing a single parameter, neither a return statement, nor parenthesis are required, making that function very short.
@@ -108,7 +107,6 @@ Single-line functions don't require body braces around the expression.
 let sum = (a, b) => a + b;
 alert( sum(1, 2) );
 ```
-
 
 Multiline statements require body braces and a return statement. In this case, we've got multiple parameters, so we can see the full syntax.
 
